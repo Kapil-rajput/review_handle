@@ -1,0 +1,43 @@
+<div class="welcome-box">
+    <h3>Enter Details to Register</h3>
+    <% if (messages.errors) { %>
+	  <div class="alert alert-danger">
+	    <% for (let error in messages.errors) { %>
+	      <p><%= messages.errors[error] %></p>
+	    <% } %>
+	  </div>
+	<% } %>
+
+	<% if (messages.success) { %>
+	  <div class="alert alert-success"><%= messages.success %></div>
+	<% } %>
+    <form class="register-form" action="/register" method="POST">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        placeholder="Your Name"
+      />
+      <input
+        type="email"
+        name="username"
+        id="email"
+        required
+        placeholder="Your Email"
+      />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        required
+        placeholder="Password"
+      />
+      <select name="isAdmin" id="isAdmin" required>
+        <option value="">Admin or Employee</option>
+        <option value="true">Admin</option>
+        <option value="false">Employee</option>
+      </select>
+      <button class="btn btn-dark">Register</button>
+  </div>
+</div>
