@@ -28,8 +28,23 @@ module.exports.addone = async (req, res) => {
   }
 };
 
+////to delete one employeee
+module.exports.deleteone = async (req, res) => {
+  try {
+    const user = await User.findOneAndDelete({
+      name: req.body.name,
+      username: req.body.username,
+    });
+    if (user) {
+      res.redirect("/dashboard");
+    } else {
+      res.redirect("/delete");
+    }
+  } catch (error) {
+    console.log(error);
+    res.redirect("/delete");
+  }
+};
 
-////to edit one employeee
-module.exports.editone = async (req, res) => {
-    
-}
+
+////to edit one employee

@@ -14,3 +14,35 @@
     <a href="/logout">Logout</a>
   </div>
 </div>
+
+
+<div class="addEmployee-Container">
+  <div>
+    <h4>Enter the Name & Email of Employee to Delete</h4>
+  </div>
+  <div>
+    <form class="form-add-edit-delete" action="/delete" method="POST">
+      <div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          placeholder="Enter Name"
+        />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="username"
+          id="username"
+          required
+          placeholder="Enter Email"
+        />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-dark">Delete Employee</button>
+      </div>
+    </form>
+  </div>
+</div>

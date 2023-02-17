@@ -41,3 +41,8 @@ exports.isAuthenticated = (req, res, next) => {
   if (req.user) return next();
   res.redirect("/login");
 };
+
+exports.isAuthenticatedAdmin = (req, res, next) => {
+  if (req.user.isAdmin == true) return next();
+  res.redirect('/login');
+}
