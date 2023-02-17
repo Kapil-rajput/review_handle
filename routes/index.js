@@ -9,8 +9,8 @@ const { initializingPassport, isAuthenticated } = require("../config/passport");
 router.get("/", (req, res) => res.render("home"));
 router.get("/login", (req, res) => res.render("login"));
 router.get("/register", (req, res) => res.render("register"));
-router.get("/adminDashboard", isAuthenticated, dashboardController.adminDashboard);
-router.get("/employeeDashboard", isAuthenticated, dashboardController.employeeDashboard);
+router.get("/dashboard", isAuthenticated, dashboardController.dashboard);
+
 
 
 

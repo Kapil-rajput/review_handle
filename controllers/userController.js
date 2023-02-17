@@ -67,10 +67,10 @@ module.exports.login = (req, res, next) => {
         return next(err);
       }
 
-      if (user.isAdmin) {
-        res.redirect("/adminDashboard");
+      if (user) {
+        res.redirect("/dashboard");
       } else {
-        res.redirect("/employeeDashboard");
+        res.redirect("/register");
       }
     });
   })(req, res, next);

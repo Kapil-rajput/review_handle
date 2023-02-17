@@ -29,3 +29,20 @@
   height: 40px;
   padding: 10px;
 }
+
+.nav {
+  background-color: black;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav > div > h3 {
+  color: white;
+  padding-left: 30px;
+}
+.menu-nav > a {
+  color: white;
+  text-decoration: none;
+  margin: 25px;
+}
