@@ -53,9 +53,15 @@ module.exports.assign = async (req, res) => {
 module.exports.reviews = async (req, res) => {
   const admins = await Users.find();
   const feedbacks = await Feedback.find();
-  res.render("reviews", {
-    user: req.user, // Pass the user object to the view
-    Admins: admins,
-    Feedbacks: feedbacks
-  });
+  const employees = await Users.find({ isAdmin: false });
+  const reviewsList = await Feedback.find()
+    .populate("assignTo", "name username") // retrieve the name and username of the employee who received the feedback
+    .populate("assignFor", "name username") // retrieve the name and username of the employee who the feedback is for
+    .exec((err, feedbacks) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("reviews", { user:req.user, Feedbacks: feedbacks });
+      }
+    });
 };

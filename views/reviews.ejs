@@ -12,18 +12,24 @@
   </div>
 </div>
 
-<div class="a-e-container">
-  <div class="admins-list">
-    <h4 class="heading">Admins List</h4>
+<div class="review-container">
+  <div class="review-list">
+    <h4 class="feedback-heading">Feedback List</h4>
     <table>
       <tr>
-        <th>Name</th>
+        <th>Feedback For</th>
+        <th>Submitted By</th>
+        <th>Submitted on</th>
+        <th>Feedback/Review</th>
       </tr>
-      <% Admins.forEach(function (admin){%> <% if(admin.isAdmin == true){%>
-      <tr>
-        <td><%=admin.name%></td>
-      </tr>
-      <%}})%>
+      <%Feedbacks.forEach(function (feedback){%>
+        <tr>
+            <td><%=feedback.assignFor.name%></td>
+            <td><%=feedback.assignTo.name%></td>
+            <td><%=feedback.createdAt.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })%></td>
+            <td><%=feedback.feedback%></td>
+        </tr>
+      <%})%>
     </table>
   </div>
 </div>
