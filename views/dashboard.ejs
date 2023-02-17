@@ -8,11 +8,49 @@
     <a href="employees">Employees</a>
     <a href="reviews">Reviews</a>
     <a href="assign">Assign</a>
-    <%}%>
-     <% if(!user.isAdmin) {%>
+    <%}%> <% if(!user.isAdmin) {%>
     <a href="addreview">Give Review</a>
     <a href="feedback">Feedback</a>
     <%}%>
     <a href="/logout">Logout</a>
   </div>
+</div>
+
+<div>
+  <% if(user.isAdmin) {%>
+    <div>
+      <h3>Admin's Panel</h3>
+    </div>
+    <div class="admins-list">
+      <h4>Admins List</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+        </tr>
+        <% Admins.forEach(function (admin){%> <% if(admin.isAdmin == true){%>
+        <tr>
+          <td><%=admin.name%></td>
+        </tr>
+        <%}})%>
+      </table>
+    </div>
+
+    <div class="employees-list">
+      <h4>Employee List</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+        </tr>
+        <% Admins.forEach(function (admin){%> <% if(!admin.isAdmin){%>
+        <tr>
+          <td><%=admin.name%></td>
+        </tr>
+        <%}})%>
+      </table>
+    </div>
+
+
+
+    
+    <%}%>
 </div>
