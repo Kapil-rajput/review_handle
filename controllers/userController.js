@@ -68,6 +68,7 @@ module.exports.login = (req, res, next) => {
       }
 
       if (user) {
+        res.locals.user = user;
         res.redirect("/dashboard");
       } else {
         res.redirect("/register");
