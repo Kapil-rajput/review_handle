@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require('../models/user');
 const passport = require('passport')
+const bcrypt = require('bcrypt')
 
 module.exports.register = async (req, res) => {
   const { name, username, password, isAdmin } = req.body;
@@ -39,11 +40,42 @@ module.exports.register = async (req, res) => {
   }
 };
 
+module.exports.login = (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      console.error(err);
+      req.flash(
+        "errors",
+        "An error occurred while logging in. Please try again later."
+      );
+      return res.redirect("/login");
+    }
 
-module.exports.login = passport.authenticate("local", {
-    failureRedirect: "/register",
-    successRedirect: "/dashboard",
-})
+    if (!user) {
+      req.flash("errors", info.message);
+      req.flash("userInput", { username: req.body.username });
+      return res.redirect("/login");
+    }
+
+    req.logIn(user, (err) => {
+      if (err) {
+        console.error(err);
+        req.flash(
+          "errors",
+          "An error occurred while logging in. Please try again later."
+        );
+        return next(err);
+      }
+
+      if (user.isAdmin) {
+        res.redirect("/adminview");
+      } else {
+        res.redirect("/employeeview");
+      }
+    });
+  })(req, res, next);
+};
+
   
 module.exports.logout = async (req, res) => {
     req.logout(function (err) { if (err)  return next(err)});
