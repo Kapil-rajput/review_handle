@@ -1,11 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const userController = require('../controllers/userController');
-const dashboardController = require('../controllers/dashboardController');
-const adminController = require('../controllers/adminController');
+const userController = require("../controllers/userController");
+const dashboardController = require("../controllers/dashboardController");
+const adminController = require("../controllers/adminController");
 const { initializingPassport, isAuthenticated } = require("../config/passport");
-
-
 
 router.get("/", (req, res) => res.render("home"));
 router.get("/login", (req, res) => res.render("login"));
@@ -18,10 +16,10 @@ router.get("/delete", isAuthenticated, dashboardController.delete);
 router.get("/edit", isAuthenticated, dashboardController.edit);
 
 
-
+router.post("/add", isAuthenticated, adminController.addone);
+router.post("/edit",isAuthenticated, adminController.editone)
 router.get("/logout", userController.logout);
 router.post("/register", userController.register);
 router.post("/login", userController.login);
-
 
 module.exports = router;

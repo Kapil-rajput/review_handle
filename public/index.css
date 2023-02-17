@@ -110,6 +110,15 @@ tr:nth-child(odd) {
   justify-content: center;
   align-items: center;
 }
-.form-add-edit-delete>input{
-  
+.form-add-edit-delete {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-add-edit-delete>div>input{
+  margin: 15px;
+  padding: 10px;
+  padding-left: 4px;
+}
+.form-add-edit-delete>div>button{
+  margin: 20px;
 }
