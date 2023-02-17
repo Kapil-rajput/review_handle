@@ -1,0 +1,17 @@
+<div class="nav">
+  <div>
+    <h3>Hello, <%= user.name%> !</h3>
+  </div>
+  <div class="menu-nav">
+    <% if(user.isAdmin) {%>
+    <a href="dashboard">Dashboard</a>
+    <a href="reviews">Reviews</a>
+    <a href="assign">Assign</a>
+    <%}%> <% if(!user.isAdmin) {%>
+    <a href="addreview">Give Review</a>
+    <a href="feedback">Feedback</a>
+    <%}%>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+

@@ -5,7 +5,6 @@
   <div class="menu-nav">
     <% if(user.isAdmin) {%>
     <a href="addemployee">Add Employee</a>
-    <a href="employees">Employees</a>
     <a href="reviews">Reviews</a>
     <a href="assign">Assign</a>
     <%}%> <% if(!user.isAdmin) {%>
@@ -16,13 +15,14 @@
   </div>
 </div>
 
-<div>
+<div class="dashboard-container">
   <% if(user.isAdmin) {%>
-    <div>
-      <h3>Admin's Panel</h3>
-    </div>
+  <div>
+    <h1 class="main-heading">Admin's Panel</h1>
+  </div>
+  <div class="a-e-container">
     <div class="admins-list">
-      <h4>Admins List</h4>
+      <h4 class="heading">Admins List</h4>
       <table>
         <tr>
           <th>Name</th>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="employees-list">
-      <h4>Employee List</h4>
+      <h4 class="heading">Employees List</h4>
       <table>
         <tr>
           <th>Name</th>
@@ -48,9 +48,6 @@
         <%}})%>
       </table>
     </div>
-
-
-
-    
-    <%}%>
+  </div>
+  <%}%>
 </div>
