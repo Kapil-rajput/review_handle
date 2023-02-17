@@ -1,9 +1,14 @@
 const Users = require("../models/user");
+const Assign = require("../models/assign");
 module.exports.dashboard = async (req, res) => {
   const admins = await Users.find();
+  const employee = await Users.find({isAdmin: false})
+  const assigned = await Assign.find();
   res.render("dashboard", {
     user: req.user, // Pass the user object to the view
     Admins: admins,
+    Assigneds: assigned,
+    Employees: employee
   });
 };
 

@@ -128,3 +128,37 @@ tr:nth-child(odd) {
   width: 200px;
   padding-left: 4px;
 }
+#heading{
+  border-bottom: 1px solid grey;
+}
+.review-box{
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.review-form{
+  width: 100%;
+  display: flex;
+  margin: 20px 0;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+.review-form>div>h5{
+  padding-right: 20px;
+  width: 200px;
+}
+.review-form>div>textarea{
+  resize: none;
+}
+.review-form>div>button{
+  margin-left: 20px;
+}
+#noemployee{
+  padding: 60px;
+  margin-top: 30px;
+  border: 1px solid grey;
+  background-color: bisque;
+}

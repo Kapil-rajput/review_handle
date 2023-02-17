@@ -51,9 +51,21 @@
   <!-- for employee viewsss -->
 
   <% if(!user.isAdmin) {%>
-  <div class="">
-    
+    <h1 id="heading">Employee to be Review</h1>
+    <div class="review-box">
+    <% Employees.forEach( function (employee){%>
+    <%  Assigneds.forEach(function (assign){%>
+    <% if(user.id == assign.assignTo){%>
+    <%if(employee.id == assign.assignFor) {%>
+    <form class="review-form" action="/feedback/<%=assign.assignFor%>/<%=assign.assignTo%>" method="POST">
+    <div><h5><%=employee.name%></h5></div>
+    <div><textarea name="feedback" placeholder="Enter Feedback For <%=employee.name%>" id="feedback" cols="100" rows="5"></textarea></div>
+    <div><button class="btn btn-dark"type="submit">Submit</button></div>
+    </form>
+    <%}}})})%>
   </div>
-
+  <% if(Assigneds.length == 0){%>
+      <p id="noemployee">No Employee are assigned for you to give Feedback !!</p>
+      <%}%>
   <%}%>
 </div>

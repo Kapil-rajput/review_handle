@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const dashboardController = require("../controllers/dashboardController");
 const adminController = require("../controllers/adminController");
+const employeeController = require("../controllers/employeeController")
 const { initializingPassport, isAuthenticated, isAuthenticatedAdmin } = require("../config/passport");
 
 router.get("/", (req, res) => res.render("home"));
@@ -16,6 +17,8 @@ router.get("/add", isAuthenticatedAdmin, dashboardController.add);
 router.get("/delete", isAuthenticatedAdmin, dashboardController.delete);
 router.get("/edit", isAuthenticatedAdmin, dashboardController.edit);
 router.get("/assign", isAuthenticatedAdmin, dashboardController.assign);
+
+router.post("/feedback/:assignFor/:assignTo",isAuthenticated, employeeController.feedback)
 
 
 
