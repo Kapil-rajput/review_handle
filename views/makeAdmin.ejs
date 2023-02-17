@@ -1,0 +1,14 @@
+<div class="nav">
+  <div>
+    <h3>Hello, <%= user.name%> !</h3>
+  </div>
+  <div class="menu-nav">
+    <% if(user.isAdmin) {%>
+    <a href="dashboard">Dashboard</a>
+    <a href="addemployee">Add Employee</a>
+    <a href="reviews">Reviews</a>
+    <a href="assign">Assign</a>
+    <%}%>
+    <a href="/logout">Logout</a>
+  </div>
+</div>

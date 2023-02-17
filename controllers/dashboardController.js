@@ -50,6 +50,14 @@ module.exports.assign = async (req, res) => {
   });
 };
 
+module.exports.makeAdmin = async (req, res) => {
+  const employees = await Users.find({ isAdmin: false });
+  res.render("makeAdmin", {
+    user: req.user,
+    Employees: employees
+  });
+};
+
 module.exports.reviews = async (req, res) => {
   const admins = await Users.find();
   const feedbacks = await Feedback.find();
