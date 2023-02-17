@@ -68,9 +68,9 @@ module.exports.login = (req, res, next) => {
       }
 
       if (user.isAdmin) {
-        res.redirect("/adminview");
+        res.redirect("/adminDashboard");
       } else {
-        res.redirect("/employeeview");
+        res.redirect("/employeeDashboard");
       }
     });
   })(req, res, next);
