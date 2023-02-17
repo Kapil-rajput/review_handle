@@ -2,8 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const assignSchema = new Schema({
-    assignTO: {
-      type: mongoose
+  assignTo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  assignFor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   }
 });
 

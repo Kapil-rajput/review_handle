@@ -7,9 +7,6 @@
     <a href="dashboard">Dashboard</a>
     <a href="addemployee">Add Employee</a>
     <a href="reviews">Reviews</a>
-    <%}%> <% if(!user.isAdmin) {%>
-    <a href="addreview">Give Review</a>
-    <a href="feedback">Feedback</a>
     <%}%>
     <a href="/logout">Logout</a>
   </div>
@@ -26,7 +23,7 @@
             <option value="">Assign To</option>
             <% Admins.forEach(function (admin){%>
                 <% if(!admin.isAdmin) {%>
-                 <option value="<%=admin.name%>"><%=admin.name%></option>
+                 <option value="<%=admin.username%>"><%=admin.name%></option>
                     <%}%>
                  <%})%>
         </select>
@@ -36,7 +33,7 @@
             <option value="">Assign For</option>
             <% Admins.forEach(function (admin){%>
                 <% if(!admin.isAdmin) {%>
-                 <option value="<%=admin.name%>"><%=admin.name%></option>
+                 <option value="<%=admin.username%>"><%=admin.name%></option>
                     <%}%>
                  <%})%>
         </select>

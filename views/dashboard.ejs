@@ -7,9 +7,6 @@
     <a href="addemployee">Add Employee</a>
     <a href="reviews">Reviews</a>
     <a href="assign">Assign</a>
-    <%}%> <% if(!user.isAdmin) {%>
-    <a href="addreview">Give Review</a>
-    <a href="feedback">Feedback</a>
     <%}%>
     <a href="/logout">Logout</a>
   </div>
@@ -49,5 +46,12 @@
       </table>
     </div>
   </div>
+  <%}%>
+
+  <!-- for employee viewsss -->
+
+  <% if(!user.isAdmin) {%>
+  <div class=""></div>
+
   <%}%>
 </div>

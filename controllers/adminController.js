@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Assign = require("../models/assign");
 const bcrypt = require("bcrypt");
 
 module.exports.addone = async (req, res) => {
@@ -46,28 +47,42 @@ module.exports.deleteone = async (req, res) => {
   }
 };
 
-
 ////to edit one employee
 module.exports.editone = async (req, res) => {
-   try {
-     const filter = { username: req.body.oldusername };
-     const update = {
-       username: req.body.username,
-       name: req.body.name,
-     };
-     const options = { new: true };
-     const user = await User.findOneAndUpdate(filter, update, options);
-     res.redirect("/dashboard");
-   } catch (error) {
-     console.error(error);
-     res.redirect('/dashboard')
-   }
-}
-
-
+  try {
+    const filter = { username: req.body.oldusername };
+    const update = {
+      username: req.body.username,
+      name: req.body.name,
+    };
+    const options = { new: true };
+    const user = await User.findOneAndUpdate(filter, update, options);
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error(error);
+    res.redirect("/dashboard");
+  }
+};
 
 //.............................assign employee for feedback
 
-module.exports.assign = (req, res) => {
-  
-}
+module.exports.assign = async (req, res) => {
+  const assignTo = await User.findOne({ username: req.body.assignTo });
+  const assignFor = await User.findOne({ username: req.body.assignFor });
+  if (assignTo.id != assignFor.id) {
+    const assign = new Assign({
+      assignTo: assignTo.id,
+      assignFor: assignFor.id,
+    });
+    try {
+      const saveAssign = await assign.save();
+      res.redirect("back");
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    res.redirect("back");
+  }
+};
+
+//.....................
