@@ -14,3 +14,37 @@
     <a href="/logout">Logout</a>
   </div>
 </div>
+
+<div class="addEmployee-Container">
+  <div>
+    <h3>Select Employee to Assign Feedback</h3>
+  </div>
+  <div>
+    <form class="form-add-edit-delete" action="/assign" method="POST">
+      <div>
+        <select name="assignTo" id="name" required>
+            <option value="">Assign To</option>
+            <% Admins.forEach(function (admin){%>
+                <% if(!admin.isAdmin) {%>
+                 <option value="<%=admin.name%>"><%=admin.name%></option>
+                    <%}%>
+                 <%})%>
+        </select>
+    </div>
+              <div>
+        <select name="assignFor" id="name" required>
+            <option value="">Assign For</option>
+            <% Admins.forEach(function (admin){%>
+                <% if(!admin.isAdmin) {%>
+                 <option value="<%=admin.name%>"><%=admin.name%></option>
+                    <%}%>
+                 <%})%>
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-dark">Assign</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>

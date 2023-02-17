@@ -19,10 +19,12 @@ router.get("/assign", isAuthenticatedAdmin, dashboardController.assign);
 
 
 
+
+router.post("/register", userController.register);
+router.post("/login", userController.login);
 router.post("/add", isAuthenticatedAdmin, adminController.addone);
 router.post("/delete", isAuthenticatedAdmin, adminController.deleteone);
 router.post("/edit", isAuthenticatedAdmin, adminController.editone);
-router.post("/register", userController.register);
-router.post("/login", userController.login);
+router.post("/assign", isAuthenticatedAdmin, adminController.assign)
 
 module.exports = router;

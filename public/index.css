@@ -114,11 +114,17 @@ tr:nth-child(odd) {
   display: flex;
   flex-wrap: wrap;
 }
-.form-add-edit-delete>div>input{
+.form-add-edit-delete > div > input {
   margin: 15px;
   padding: 10px;
   padding-left: 4px;
 }
-.form-add-edit-delete>div>button{
+.form-add-edit-delete > div > button {
   margin: 20px;
+}
+.form-add-edit-delete > div > select {
+  margin: 15px;
+  padding: 10px;
+  width: 200px;
+  padding-left: 4px;
 }

@@ -68,4 +68,6 @@ module.exports.editone = async (req, res) => {
 
 //.............................assign employee for feedback
 
-
+module.exports.assign = (req, res) => {
+  
+}
