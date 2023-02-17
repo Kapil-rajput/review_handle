@@ -48,3 +48,22 @@ module.exports.deleteone = async (req, res) => {
 
 
 ////to edit one employee
+module.exports.editone = async (req, res) => {
+   try {
+     const filter = { username: req.body.oldusername };
+     const update = {
+       username: req.body.username,
+       name: req.body.name,
+     };
+     const options = { new: true };
+     const user = await User.findOneAndUpdate(filter, update, options);
+     res.redirect("/dashboard");
+   } catch (error) {
+     console.error(error);
+     res.redirect('/dashboard')
+   }
+}
+
+
+
+//.............................

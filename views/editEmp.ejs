@@ -15,3 +15,44 @@
   </div>
 </div>
 
+
+<div class="addEmployee-Container">
+  <div>
+    <h4>Enter the Email of Employee of which u want to update Details</h4>
+  </div>
+  <div>
+    <form class="form-add-edit-delete" action="/edit" method="POST">
+      <div>
+        <input
+          type="email"
+          name="oldusername"
+          id="username"
+          required
+          placeholder="Enter Email"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          placeholder="Enter New Name"
+        />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="username"
+          id="username"
+          required
+          placeholder="Enter New Email"
+        />
+      </div>
+      
+      <div>
+        <button type="submit" class="btn btn-dark">Update Employee</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -17,7 +17,8 @@ router.get("/edit", isAuthenticatedAdmin, dashboardController.edit);
 
 
 router.post("/add", isAuthenticatedAdmin, adminController.addone);
-router.post("/delete",isAuthenticatedAdmin, adminController.deleteone)
+router.post("/delete", isAuthenticatedAdmin, adminController.deleteone);
+router.post("/edit", isAuthenticatedAdmin, adminController.editone);
 router.get("/logout", userController.logout);
 router.post("/register", userController.register);
 router.post("/login", userController.login);
