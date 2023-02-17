@@ -1,5 +1,6 @@
 const Users = require("../models/user");
 const Assign = require("../models/assign");
+const Feedback = require("../models/feedback");
 module.exports.dashboard = async (req, res) => {
   const admins = await Users.find();
   const employee = await Users.find({isAdmin: false})
@@ -46,5 +47,15 @@ module.exports.assign = async (req, res) => {
   res.render("assign", {
     user: req.user, // Pass the user object to the view
     Admins: admins,
+  });
+};
+
+module.exports.reviews = async (req, res) => {
+  const admins = await Users.find();
+  const feedbacks = await Feedback.find();
+  res.render("reviews", {
+    user: req.user, // Pass the user object to the view
+    Admins: admins,
+    Feedbacks: feedbacks
   });
 };

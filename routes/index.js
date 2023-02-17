@@ -17,6 +17,7 @@ router.get("/add", isAuthenticatedAdmin, dashboardController.add);
 router.get("/delete", isAuthenticatedAdmin, dashboardController.delete);
 router.get("/edit", isAuthenticatedAdmin, dashboardController.edit);
 router.get("/assign", isAuthenticatedAdmin, dashboardController.assign);
+router.get("/reviews",isAuthenticatedAdmin,dashboardController.reviews)
 
 router.post("/feedback/:assignFor/:assignTo",isAuthenticated, employeeController.feedback)
 
