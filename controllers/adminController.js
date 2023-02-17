@@ -87,3 +87,17 @@ module.exports.assign = async (req, res) => {
 
 //.....................
 
+module.exports.makeAdmin = async (req, res) => {
+  try {
+    const adminUpdate = await User.findOneAndUpdate(
+      { username: req.body.username },
+      {
+        isAdmin: true,
+      }
+    );
+    res.redirect('dashboard');
+  } catch (error) {
+    console.log(error);
+  }
+  
+}

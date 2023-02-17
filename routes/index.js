@@ -26,6 +26,7 @@ router.post("/login", userController.login);
 router.post("/add", isAuthenticatedAdmin, adminController.addone);
 router.post("/delete", isAuthenticatedAdmin, adminController.deleteone);
 router.post("/edit", isAuthenticatedAdmin, adminController.editone);
-router.post("/assign", isAuthenticatedAdmin, adminController.assign)
+router.post("/assign", isAuthenticatedAdmin, adminController.assign);
+router.post("/makeadmin", isAuthenticatedAdmin, adminController.makeAdmin);
 
 module.exports = router;

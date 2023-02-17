@@ -12,3 +12,24 @@
     <a href="/logout">Logout</a>
   </div>
 </div>
+
+<div class="addEmployee-Container">
+  <div>
+    <h4>Choose Employee you want to make Admin</h4>
+  </div>
+  <div>
+    <form class="form-add-edit-delete" action="/makeadmin" method="POST">
+      <div>
+        <select name="username" id="name">
+          <option value="">Choose Employee</option>
+          <%Employees.forEach(function (employee){%>
+          <option value="<%=employee.username%>"><%=employee.name%></option>
+          <%})%>
+        </select>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-dark">Make Admin</button>
+      </div>
+    </form>
+  </div>
+</div>
