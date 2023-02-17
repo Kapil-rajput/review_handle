@@ -35,3 +35,11 @@ module.exports.delete = async (req, res) => {
     Admins: admins,
   });
 };
+
+module.exports.assign = async (req, res) => {
+  const admins = await Users.find();
+  res.render("assign", {
+    user: req.user, // Pass the user object to the view
+    Admins: admins,
+  });
+};
