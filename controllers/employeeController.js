@@ -1,9 +1,10 @@
+//importing user , assign, feedback from database
 const User = require("../models/user");
 const Feedback = require("../models/feedback");
 const Assign = require("../models/assign");
 
 
-
+// function to add feedback to database
 module.exports.feedback = async (req, res) => {
   const assignFor = req.params.assignFor;
   const assignTo = req.params.assignTo;
