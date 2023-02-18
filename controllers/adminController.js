@@ -1,7 +1,9 @@
+// importing User, assign from database,, bcrypt for hashing password
 const User = require("../models/user");
 const Assign = require("../models/assign");
 const bcrypt = require("bcrypt");
 
+// fucntion to add employee
 module.exports.addone = async (req, res) => {
   const { name, username, password } = req.body;
   const existingUser = await User.findOne({ username });
@@ -66,6 +68,7 @@ module.exports.editone = async (req, res) => {
 
 //.............................assign employee for feedback
 
+//fucntion to assign 1 employee to other employee for review
 module.exports.assign = async (req, res) => {
   const assignTo = await User.findOne({ username: req.body.assignTo });
   const assignFor = await User.findOne({ username: req.body.assignFor });
@@ -87,6 +90,7 @@ module.exports.assign = async (req, res) => {
 
 //.....................
 
+// function to make employee a admin
 module.exports.makeAdmin = async (req, res) => {
   try {
     const adminUpdate = await User.findOneAndUpdate(
