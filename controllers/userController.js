@@ -1,8 +1,11 @@
+//importing express, User,passport, bcrypt
 const express = require("express");
 const User = require('../models/user');
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 
+
+// function to register user and add to the database
 module.exports.register = async (req, res) => {
   const { name, username, password, isAdmin } = req.body;
 
@@ -40,6 +43,8 @@ module.exports.register = async (req, res) => {
   }
 };
 
+
+// function to login user if it is present in the database
 module.exports.login = (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
@@ -77,7 +82,7 @@ module.exports.login = (req, res, next) => {
   })(req, res, next);
 };
 
-  
+// fucntion to logout the user
 module.exports.logout = async (req, res) => {
     req.logout(function (err) { if (err)  return next(err)});
     res.redirect("/login");
