@@ -1,6 +1,10 @@
+
+// importing user, assign, feedback from databases
 const Users = require("../models/user");
 const Assign = require("../models/assign");
 const Feedback = require("../models/feedback");
+
+//function to render dashbaord
 module.exports.dashboard = async (req, res) => {
   const admins = await Users.find();
   const employee = await Users.find({isAdmin: false})
@@ -13,6 +17,7 @@ module.exports.dashboard = async (req, res) => {
   });
 };
 
+//function to render add edit delete page
 module.exports.addEmployee = async (req, res) => {
   const admins = await Users.find();
   res.render("addEmployee", {
@@ -20,6 +25,7 @@ module.exports.addEmployee = async (req, res) => {
     Admins: admins,
   });
 };
+//function to render add employee page
 module.exports.add = async (req, res) => {
   const admins = await Users.find();
   res.render("addEmp", {
@@ -27,6 +33,7 @@ module.exports.add = async (req, res) => {
     Admins: admins,
   });
 };
+// fucntion to render edit employee page
 module.exports.edit = async (req, res) => {
   const admins = await Users.find();
   res.render("editEmp", {
@@ -34,6 +41,7 @@ module.exports.edit = async (req, res) => {
     Admins: admins,
   });
 };
+// function to render delete page
 module.exports.delete = async (req, res) => {
   const admins = await Users.find();
   res.render("deleteEmp", {
@@ -42,6 +50,7 @@ module.exports.delete = async (req, res) => {
   });
 };
 
+// fucntion to render assign page 
 module.exports.assign = async (req, res) => {
   const admins = await Users.find();
   res.render("assign", {
@@ -50,6 +59,7 @@ module.exports.assign = async (req, res) => {
   });
 };
 
+// fucntion to render to makeadmin page
 module.exports.makeAdmin = async (req, res) => {
   const employees = await Users.find({ isAdmin: false });
   res.render("makeAdmin", {
@@ -58,6 +68,7 @@ module.exports.makeAdmin = async (req, res) => {
   });
 };
 
+// function to render review page
 module.exports.reviews = async (req, res) => {
   const admins = await Users.find();
   const feedbacks = await Feedback.find();
